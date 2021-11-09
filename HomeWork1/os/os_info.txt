@@ -1,0 +1,5 @@
+Your OS:
+System: Darwin 21.1.0 x64
+Processor: Intel(R) Core(TM) i5-8257U CPU @ 1.40GHz
+RAM: 8 GB
+Host name: MacBook-Pro-Dima-Kutko.local
