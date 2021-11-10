@@ -10,6 +10,8 @@
     "license": "ISC",
     "dependencies": {
         "events": "^3.3.0",
-        "http": "^0.0.1-security"
+        "http": "^0.0.1-security",
+        "str_plus_str": "^1.0.0",
+        "summa_itstep_node": "^1.0.2"
     }
 }
