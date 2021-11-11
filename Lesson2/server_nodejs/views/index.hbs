@@ -1,0 +1,21 @@
+<h3>Список дел</h3>
+{{#if todos.length}}
+    <ul>
+        {{#each todos}}
+            <li>
+                <label>
+                    {{#if completed}}
+                        <input type="checkbox" checked>
+                    {{else}}
+                        <input type="checkbox">
+                    {{/if}}
+                    <span>{{title}}</span>
+                    <a href="/delete/{{title}}">x</a>
+                    <button class="btn btn-small">Сохранить</button>
+                </label>
+            </li>
+        {{/each}}
+    </ul>
+{{else}}
+    <p>Пока у вас нет дел</p>
+{{/if}}
