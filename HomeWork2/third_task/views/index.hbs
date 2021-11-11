@@ -1,21 +1,33 @@
-<h3>Список дел</h3>
-{{#if todos.length}}
-    <ul>
+
+<div>
+  <h3>Список дел</h3>
+  {{#if todos.length}}
+    <table class="striped">
+      <tbody>
         {{#each todos}}
-            <li>
-                <label>
+        <form action="/update/{{_id}}" method="POST">
+          <tr>
+            <td>{{title}}</td>
+            <td>
+                <p>
+                  <label>
                     {{#if completed}}
-                        <input type="checkbox" checked>
+                    <input name="completed" type="checkbox" checked="checked" value="true" />
                     {{else}}
-                        <input type="checkbox">
+                    <input name="completed" type="checkbox" value="true"/>
                     {{/if}}
-                    <span>{{title}}</span>
-                    <a href="/delete/{{title}}">x</a>
-                    <button class="btn btn-small">Сохранить</button>
-                </label>
-            </li>
+                    <span></span>
+                  </label>
+                </p>
+            </td>
+            <td><input type="submit" class="btn btn-small" value="Сохранить"/></td>
+            <td><a href="/delete/{{title}}">x</a></td>
+          </tr>
+        </form>
         {{/each}}
-    </ul>
-{{else}}
-    <p>Пока у вас нет дел</p>
-{{/if}}
+      </tbody>
+    </table>
+  {{else}}<p>Пока у вас нет дел</p>{{/if}}
+</div>
+
+

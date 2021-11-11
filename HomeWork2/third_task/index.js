@@ -21,9 +21,7 @@ async function start() {
     try {
         await mongoose.connect('mongodb+srv://dima:qwerty123456@cluster0.cnwmb.mongodb.net/todos');
 
-        app.listen(PORT, () => {
-            console.log('Server has been started...')
-        })
+        app.listen(PORT, () => console.log('Server has been started...'))
     } catch (e) {
         console.log(e)
     }
