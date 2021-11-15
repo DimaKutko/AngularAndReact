@@ -1,7 +1,8 @@
 export default class Product {
-    constructor(name, price) {
+    constructor(name, price, img) {
         this.name = name;
         this.price = price;
+        this.img = img;
         this.date = new Date();
     }
 
@@ -9,7 +10,8 @@ export default class Product {
         return JSON.stringify({
             name: this.name,
             price: this.price,
-            date: this.date.toJSON()
-        });
+            date: this.date.toJSON(),
+            img: this.img
+        }, null, 2);
     }
 }

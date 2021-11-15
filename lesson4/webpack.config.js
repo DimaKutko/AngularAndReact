@@ -1,10 +1,12 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const path = require('path');
 
 module.exports = {
+    context: path.resolve(__dirname, 'src'),
     entry: {
-        main: './src/index.js',
-        statistics: './src/statistics.js'
+        main: './index.js',
+        statistics: './statistics.js'
 
     },
     output: {
@@ -13,7 +15,26 @@ module.exports = {
     },
     plugins: [
         new HtmlWebpackPlugin({
-            title: 'Test webpack'
-        })
-    ]
+            template: './index.html'
+        }),
+        new CleanWebpackPlugin()
+    ],
+    resolve: {
+        extensions: ['.js', '.json'],
+    },
+    module: {
+        rules: [{
+                test: /\.css$/,
+                use: ['style-loader', 'css-loader']
+            },
+            {
+                test: /\.(png|svg|gif|jpg)$/,
+                type: 'asset/resource'
+            },
+            {
+                test: /\.xml$/,
+                use: ['xml-loader']
+            }
+        ]
+    }
 };

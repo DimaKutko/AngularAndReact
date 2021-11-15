@@ -9,13 +9,13 @@
 /******/ (() => { // webpackBootstrap
 /******/ 	var __webpack_modules__ = ({
 
-/***/ "./src/statistics.js":
-/*!***************************!*\
-  !*** ./src/statistics.js ***!
-  \***************************/
+/***/ "./statistics.js":
+/*!***********************!*\
+  !*** ./statistics.js ***!
+  \***********************/
 /***/ (() => {
 
-eval("function createStatistics() {\n    let counter = 0;\n    const listner = () => counter++;\n\n    document.addEventListener('click', listner);\n\n    return {\n        getClicks() {\n            return counter;\n        },\n        removeClicks() {\n            return counter = 0;\n        }\n    }\n}\n\nwindow.statistics = createStatistics();\n\n//# sourceURL=webpack://webpack/./src/statistics.js?");
+eval("function createStatistics() {\n    let counter = 0;\n    const listner = () => {\n        counter++;\n        console.log('Кликов: ' + counter);\n    }\n\n    document.addEventListener('click', listner);\n\n    return {\n        getClicks() {\n            return counter;\n        },\n        removeClicks() {\n            return counter = 0;\n        }\n    }\n}\n\nwindow.statistics = createStatistics();\n\n//# sourceURL=webpack:///./statistics.js?");
 
 /***/ })
 
@@ -26,7 +26,7 @@ eval("function createStatistics() {\n    let counter = 0;\n    const listner = (
 /******/ 	// Load entry module and return exports
 /******/ 	// This entry module can't be inlined because the eval devtool is used.
 /******/ 	var __webpack_exports__ = {};
-/******/ 	__webpack_modules__["./src/statistics.js"]();
+/******/ 	__webpack_modules__["./statistics.js"]();
 /******/ 	
 /******/ })()
 ;
