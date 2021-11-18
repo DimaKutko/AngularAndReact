@@ -1,0 +1,17 @@
+@import "~normalize.css";
+@import 'roboto.css';
+body {
+    background-color: rgb(222, 154, 249);
+    font-family: 'Robot', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.img {
+    background-image: url("../assets/cat.png");
+    margin: 0 auto;
+    height: 600px;
+    background-size: cover;
+}
