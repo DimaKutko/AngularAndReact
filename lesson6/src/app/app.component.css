@@ -1,0 +1,10 @@
+.hoby-name {
+    font-size: 22px;
+    color: blue;
+}
+
+.hoby-description {
+    font-size: 16px;
+    color: green;
+    font-style: italic;
+}
