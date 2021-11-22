@@ -6,5 +6,28 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'lesson7';
+
+  currentTime: string | undefined;
+	 	 constructor() {
+	    setInterval(
+	      () => {
+	        this.currentTime = new Date().toLocaleTimeString();
+	      }, 1000
+	    )    
+	  }
+
+  title: string = `app`;
+  name: string = 'Dima';
+
+
+  start(){
+    return 'Start';
+  }
+
+  click() {
+        this.title = 'Button clicked';
+  }    
 }
+
+
+
