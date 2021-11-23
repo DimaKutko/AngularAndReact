@@ -1,0 +1,13 @@
+<div class="container">
+    <div class="card" style="width: 18rem;">
+        <img src="{{myCvv.photo_url}}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{myCvv.name}} {{myCvv.surname}}</h5>
+            <div>City: {{myCvv.city}}</div>
+            <div>Email: {{myCvv.email}}</div>
+            <div>Phone: {{myCvv.phoneNumber}}</div>
+            <div>Experience: {{myCvv.experience}}</div>
+            <div>Lang: <span *ngFor="let l of myCvv.lang">{{l}}, </span></div>
+        </div>
+    </div>
+</div>
