@@ -1,0 +1,23 @@
+Age: <input type="number" [(ngModel)]="inputAge">
+
+<button (click)="setAge()">Set age</button>
+<!-- 
+<div>
+    <br/> Login: <input type="text" [(ngModel)]="inputLogin">
+    <br/> Password: <input type="text" [(ngModel)]="inputPassword">
+
+    <button (click)="auth()">Login</button>
+</div> -->
+
+<form>
+    <label>Логин</label>
+    <input type="text" [(ngModel)]="loginForm.login" name="loginForm.login" required>
+    <label>Пароль</label>
+    <input type="password" [(ngModel)]="loginForm.password" name="loginForm.password" required>
+    <button (click)="printForm()">Войти</button>
+</form>
+
+{{message}}
+
+<br>
+<input [formControl]="nameControl">
