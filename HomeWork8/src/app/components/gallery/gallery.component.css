@@ -1,0 +1,13 @@
+.current-art {
+    height: 50vh;
+    object-fit: contain;
+}
+
+.current-art-card {
+    height: 60vh;
+}
+
+.mini-img {
+    height: 150px;
+    object-fit: cover;
+}

@@ -1,0 +1,37 @@
+<div class="container" style="margin-bottom: 20px;">
+    <div class="row row-cols-3 ">
+        <div *ngFor="let art of currentAuthor.arts">
+            <img src="{{art.link}}" class="img-thumbnail mini-img" (click)="setCurrentArt(currentAuthor.id, art.id)">
+        </div>
+    </div>
+</div>
+<div class="container">
+    <div class="current-art-card mb-3">
+        <img src="{{currentArt.link}}" class="current-art card-img-top " alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{currentArt.title}} [{{currentArt.year}}]</h5>
+            <div class="card-text">
+                Author: {{currentAuthor.name}}
+                <div *ngIf="currentArt.size">Size: {{currentArt.size}}</div>
+                <div *ngIf="currentArt.position">Position: {{currentArt.position}}</div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container ">
+    <div class="row row-cols-3 ">
+        <div *ngFor="let author of myGallery ">
+            <div class="col">
+                <div *ngFor="let art of author.arts">
+                    <div class="card bg-dark text-white" (click)="setCurrentArt(author.id, art.id)">
+                        <img src="{{art.link}}" class="card-img card">
+                        <div class="card-img-overlay ">
+                            <h5 class="card-title ">{{art.title}}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
