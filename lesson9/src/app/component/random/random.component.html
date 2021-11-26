@@ -1,0 +1,12 @@
+<form [formGroup]="myForm" (ngSubmit)="getRandom(myForm)">
+    <div>
+        <label>Min</label>
+        <input type="number" formControlName="min" placeholder="Min">
+        <label>Max</label>
+        <input type="number" formControlName="max" placeholder="Max">
+        <label>Count</label>
+        <input type="number" formControlName="count" placeholder="Count">
+    </div>
+    <button type="submit">Get random</button>
+</form>
+<div *ngFor="let n of data">{{n}}</div>

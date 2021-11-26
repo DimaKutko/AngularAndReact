@@ -1,0 +1,7 @@
+<form [formGroup]="myForm" (ngSubmit)="saveForm(myForm)">
+    <div>
+        <label>Наименнование города {{temperature}}</label>
+        <input type="text" formControlName="cityName" placeholder="город">
+    </div>
+    <button type="submit">Отправить</button>
+</form>
