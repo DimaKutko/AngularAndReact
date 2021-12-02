@@ -1,12 +1,28 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import reportWebVitals from './reportWebVitals';
+import Car from './components/Car';
+import img from './assets/car.jpg';
+import Like from './components/Like';
+import Book from './components/Book';
+
+const car = {
+  name: 'audi',
+  price: 100000,
+  img: img,
+  discription: "Car is good",
+  creator: {
+    name: "August",
+    surname: "Horch"
+  }
+}
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <Car car={car} />
+    <Like/>
+    <Book/>
   </React.StrictMode>,
   document.getElementById('root')
 );

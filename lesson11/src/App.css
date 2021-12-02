@@ -1,3 +1,10 @@
+* {
+  text-align: center;
+  font-size: 24px;
+  color: white;
+  background-color: rgb(59, 59, 59);
+}
+
 .App {
   text-align: center;
 }
@@ -35,4 +42,8 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.myImg {
+  height: 400px;
 }
