@@ -1,39 +1,26 @@
-import React from "react";
+import React, { useState } from "react";
 import "./../App.css";
 
-export default function Task2(props) {
-  const {
-    recipe: { name, recipe, img, ingredients },
-  } = props;
+//Незнаю зачем так усложнять, задание требует таких изврощений 
+export default function Task3() {
+  let [time, setTime] = useState("ttt");
 
-  let array = [];
-  for (let i = 0; i < ingredients.length; i++) {
-    array.push(<Ingredient ingredient={ingredients[i]} />);
-  }
+  setInterval(() => {
+    var today = new Date();
+    var time =
+      today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+
+    setTime(time);
+  }, 1000);
 
   return (
     <>
       <h5>TASK 3</h5>
-      <img src={img} alt={name} />
-      <h2>{name} </h2>
-
-      <div class="description">
-        <ul>{array}</ul>
-
-        <p>Рецепт: {recipe}</p>
-      </div>
+      <Time time={time} />
     </>
   );
 }
 
-function Ingredient(props) {
-  const {
-    ingredient: { name, count},
-  } = props;
-
-  return (
-    <li>
-      {name} {count}
-    </li>
-  );
+function Time(props) {
+  return <h2>Time: {props.time}</h2>;
 }
