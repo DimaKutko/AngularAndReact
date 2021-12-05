@@ -1,17 +1,38 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+/*import { StrictMode } from "react";
+import ReactDOM from "react-dom";*/
+import React from "react";
+import { render } from "react-dom";
 
-ReactDOM.render(
+import App from "./App";
+import Car from "./components/Car";
+
+import img from "./assets/audi.jfif";
+import Creator from "./components/Creator";
+import CarsList from "./components/CarsList";
+import cars from "./models/car.js"
+import Form from "./components/Form";
+
+const car = {
+  model: "Audi SQ5",
+  year: "2013",
+  price: 150000,
+  img: img,
+};
+
+const rootElement = document.getElementById("root");
+render(
   <React.StrictMode>
     <App />
+    {/* <Car data={car} /> */}
+    {/* <Creator /> */}
+    <Form/>
+    <CarsList data={cars}/>
   </React.StrictMode>,
-  document.getElementById('root')
+  rootElement
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+/*ReactDOM.render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+  rootElement
+);*/
