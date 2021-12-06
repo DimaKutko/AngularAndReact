@@ -1,0 +1,5 @@
+@BASE_URL=http://localhost
+
+###GET Priority
+GET {{BASE_URL}}/priority
+Content-Type: application/json
