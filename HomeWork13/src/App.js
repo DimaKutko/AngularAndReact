@@ -5,24 +5,25 @@ import Navbar from "./Navbar";
 import Task1 from "./components/Task1";
 import Task2 from "./components/Task2";
 import club from "./models/club";
+import Profile from "./components/Profile";
 
 function NotFound() {
   return <h2>Not found</h2>;
 }
 
 export default function App() {
+  
   return (
     <div>
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<Task1 />} />
-          <Route exact path="/task1" element={<Task1 club={club} />} />
+          <Route exact path="*" element={<Task1 club={club} />} />
           <Route exact path="/task2/" element={<Task2 data={city} />} />
           <Route exact path="/task2/city" element={<Task2 data={city} />} />
           <Route exact path="/task2/park" element={<Task2 data={park} />} />
           <Route exact path="/task2/dyk" element={<Task2 data={dyk} />} />
-
+          <Route exact path="/profile" element={<Profile/>} />
           <Route element={<NotFound />} />
         </Routes>
       </BrowserRouter>
