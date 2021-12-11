@@ -1,53 +1,86 @@
 import React, { useState } from "react";
+import { Field, Form, Formik } from "formik";
+import * as yup from "yup";
 
-export default function Profile(props) {
-  const [profile, setProfile] = useState({});
-
-  const name = React.useRef(null);
-  const suranme = React.useRef(null);
-  const photo = React.useRef(null);
-
-  function add(e) {
-    e.preventDefault();
-
-
-    // console.dir(photo.current.file.files[0]);
-    // var file = photo.file.files[0];
-    // var reader = new FileReader();
-    // var url = reader.readAsDataURL(file);
-
-    const _profile = {
-      name: name.current.value,
-      surname: suranme.current.value,
-      img: photo.current.value,
-    };
-
-
-    setProfile(_profile);
-  }
-
+const Profile = () => {
+  const [_profile, setProfile] = useState(null);
   return (
     <div>
-      <form>
-        <h2>Name</h2>
-        <input type="text" ref={name} />
-        <h2>Surname</h2>
-        <input type="text" ref={suranme} />
-        <h2>Profile</h2>
-        <input type="file" name="user[image]" multiple="true" ref={photo} />
-        <br /> <button onClick={add}>SET</button>
-      </form>
-      <User user={profile} />
-    </div>
-  );
-}
+      <h1>Photo upload</h1>
+      <Formik
+        initialValues={{
+          name: "",
+          surname: "",
+          file: null,
+        }}
+        onSubmit={(values) => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            const image = reader.result;
+            setProfile({
+              name: values.name,
+              surname: values.surname,
+              image: reader.result,
+            });
+          };
 
-function User(props) {
-  return (
-    <div>
-      <h2>Name: {props.user.name}</h2>
-      <h2>Surname: {props.user.surname}</h2>
-      <img src={props.user.img} alt={props.user.name} />
+          reader.readAsDataURL(values.file);
+        }}
+        validationSchema={yup.object().shape({
+          name: yup
+            .string()
+            .required("Name is required.")
+            .min(3, "Min length is 3.")
+            .max(20, "Max length is 20."),
+          surname: yup
+            .string()
+            .required("Surname is required.")
+            .min(3, "Min length is 3.")
+            .max(20, "Max length is 20."),
+          file: yup.mixed().required("Photo is required."),
+        })}
+      >
+        {({ errors, touched, setFieldValue }) => (
+          <Form>
+            <div>
+              <Field name="name" placeholder="Name" />
+              {errors.name && touched.name ? <div>{errors.name}</div> : null}
+            </div>
+            <div>
+              <Field name="surname" type="text" placeholder="Surname" />
+              {errors.surname && touched.surname ? (
+                <div>{errors.surname}</div>
+              ) : null}
+            </div>
+            <div>
+              <input
+                name="file"
+                type="file"
+                onChange={(event) => {
+                  setFieldValue("file", event.currentTarget.files[0]);
+                }}
+              />
+              {errors.file && touched.file ? <div>{errors.file}</div> : null}
+            </div>
+            <div>
+              <button>Upload</button>
+            </div>
+          </Form>
+        )}
+      </Formik>
+      {_profile && (
+        <div>
+          <p>
+            <b>Nickname:</b> {_profile.name}
+          </p>
+          <p>
+            <b>surname:</b> {_profile.surname}
+          </p>
+          <img src={_profile.image} alt={_profile.name} />
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Profile;
